@@ -1,0 +1,234 @@
+* {
+    background-color: #CD5C08;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.screenContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 98vh;
+    padding: 0 50px;
+}
+
+.container-completed, .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF5E4;
+    height: 600px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: #974506 10px 10px 5px;
+}
+
+.header-container-completed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    height: 46px;
+    width: 92%;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    text-shadow: black 1px 0 3px;
+    border-bottom: 1px dotted black;
+    background-color: #FFF5E4;
+}
+
+#textInput {
+    height: 40px;
+    width: 300px;
+    margin: 20px;
+    background-color: white;
+    border: 2px solid rgb(115, 115, 115);
+    border-radius: 6px;
+    opacity: 1;
+    font-size: 20px;
+    padding: 1px 16px;
+    transition: 0.3s;
+}
+
+#textInput:hover {
+    opacity: 0.6;
+}
+
+#btn {
+    background-color: #6A9C89;
+    border: none;
+    border-radius: 6px;
+    height: 46px;
+    width: 80px;
+    font-size: 20px;
+    color: white;
+    margin-top: -66px;
+    margin-left: 396px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#btn:hover {
+    opacity: 0.8;
+}
+
+.output {
+    display: flex;
+    justify-content: row;
+    justify-content: space-between;
+    background-color: #C1D8C3;
+    border-radius: 5px;
+    height: 10%;
+    width: 450px;
+    margin: 20px auto;
+    color: black;
+    font-size: 20px;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.output:hover {
+    filter: brightness(0.9)
+}
+
+.container2 {
+    background-color: #FFF5E4;
+    height: 480px;
+    width: 460px;
+    margin: auto;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.container3 {
+    background-color: #FFF5E4;
+    height: 480px;
+    width: 460px;
+    margin: auto;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.deleteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #829460;
+    opacity: 0.7;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.deleteBtn:hover {
+    opacity: 1;
+}
+
+.outputMsg {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    background-color: #C1D8C3;
+    overflow: scroll;
+    scrollbar-width: none;
+    height: 100%;
+    width: 350px;
+    color: white;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #C1D8C3;
+    height: 100%;
+    width: 90px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.editBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #EEEEEE;
+    opacity: 0.7;
+    transition: 0.3s;
+    cursor: pointer;
+    gap: 20px;
+}
+
+.editBtn:hover {
+    opacity: 1;
+}
+
+.editInput {
+    background: white;
+    margin-right: 40px;
+}
+
+.confirmBtn {
+    background-color: #387F39;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.cancelBtn {
+    background-color: #C7253E;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.confirmBtn:hover {
+    opacity: 1;
+}
+
+.cancelBtn:hover {
+    opacity: 1;
+}
+
+.deleteIMG {
+    height: 24px;
+    width: 24px;
+    background-color: #829460;
+}
+
+.editIMG {
+    height: 24px;
+    width: 24px;
+    background-color: #EEEEEE;
+}
+
+.confirmIMG {
+    margin-top: 4px;
+    height: 24px;
+    width: 24px;
+    background-color: #387F39;
+}
+
+.cancelIMG {
+    margin-top: 4px;
+    height: 24px;
+    width: 24px;
+    background-color: #C7253E;
+}
