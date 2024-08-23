@@ -8,6 +8,11 @@ const container2 = document.createElement("div");
 const containerCompleted = document.createElement('div');
 const headerContainerCompleted = document.createElement('div');
 const container3 = document.createElement('div');
+const profile = document.createElement('img');
+profile.className = "profileIcon";
+profile.src = "profile.png";
+profile.style.backgroundColor = "#CD5C08";
+profile.draggable = false;
 headerContainerCompleted.className = "header-container-completed";
 headerContainerCompleted.innerText = "Tasks Completed."
 containerCompleted.className = "container-completed";
@@ -64,6 +69,15 @@ function textOutput() {
   textInput.value = "";
 
   outputMsg.addEventListener("click", function () {
+
+    outputMsg.style.pointerEvents = "none";
+    output.appendChild(cancel);
+    cancel.style.margin = "10px";
+
+    cancel.addEventListener("click", function () {
+      output.remove();
+    });
+
     if(confirm("do you want to confirm this task?") == true) {
       output.remove();
       container3.appendChild(output);
@@ -75,7 +89,11 @@ function textOutput() {
     output.remove();
   })
 
+  editInput.value = outputMsg.innerHTML
+  
+  console.log(editInput.value)
   editBtn.addEventListener("click", function () {
+
     output.appendChild(editInput);
     deleteBtn.remove();
     editBtn.remove();
@@ -83,8 +101,13 @@ function textOutput() {
     buttons.appendChild(Confirm);
     buttons.appendChild(cancel);
     Confirm.addEventListener("click", function () {
-      if(editInput == "") {
-        // if the editinput is empty make the outputmsg innerhtml to the same msg in the outputmsg
+      if(editInput.value == "") {
+        editInput.value = outputMsg.innerHTML;
+        editInput.remove();
+        cancel.remove();
+        Confirm.remove();
+        buttons.appendChild(editBtn);
+        buttons.appendChild(deleteBtn);
       }
       outputMsg.innerHTML = editInput.value;
       cancel.remove();
@@ -104,7 +127,7 @@ function textOutput() {
       deleteBtn.appendChild(deleteIMG);
       editBtn.appendChild(editIMG);
     })
-    editInput.value = "";
+    // editInput.value = "";
   })
 
 }
@@ -116,6 +139,64 @@ btn.addEventListener("click", function () {
     textOutput();
   }
 });
+
+// profile.addEventListener("click", function () {
+//   const profileContainer = document.createElement('div');
+//   profileContainer.className = "profileContainer";
+  
+//   const email = localStorage.getItem("email");
+//   const phoneNumber = localStorage.getItem("phoneNumber");
+  
+//   const emailElement = document.createElement('p');
+//   emailElement.className = "email-box";
+//   emailElement.innerHTML = `Email: ${email}`;
+  
+//   const phoneElement = document.createElement('p');
+//   phoneElement.className = "phoneNumber-box";
+//   phoneElement.innerHTML = `Phone Number: ${phoneNumber}`;
+  
+//   profileContainer.appendChild(emailElement);
+//   profileContainer.appendChild(phoneElement);
+
+//   document.body.appendChild(profileContainer);
+
+// });
+
+let profileOpen = false;
+let profileContainer;
+
+profile.addEventListener("click", function () {
+
+  if (profileOpen) {
+
+    if (profileContainer) {
+      document.body.removeChild(profileContainer);
+      profileOpen = false;
+    }
+  } else {
+
+    profileContainer = document.createElement('div');
+    profileContainer.className = "profileContainer";
+    
+    const email = localStorage.getItem("email");
+    const phoneNumber = localStorage.getItem("phoneNumber");
+    
+    const emailElement = document.createElement('p');
+    emailElement.className = "email-box";
+    emailElement.innerHTML = `Email: ${email}`;
+    
+    const phoneElement = document.createElement('p');
+    phoneElement.className = "phoneNumber-box";
+    phoneElement.innerHTML = `Phone Number: ${phoneNumber}`;
+    
+    profileContainer.appendChild(emailElement);
+    profileContainer.appendChild(phoneElement);
+
+    document.body.appendChild(profileContainer);
+    profileOpen = true;
+  }
+});
+
 
 container1.appendChild(container2);
 
@@ -130,6 +211,7 @@ const formatter = new Intl.DateTimeFormat("en-GB", {
 const formattedTime = formatter.format(date);
 console.log(formattedTime);
 
+body.appendChild(profile);
 body.appendChild(screenContainer);
 screenContainer.appendChild(container1);
 screenContainer.appendChild(containerCompleted);

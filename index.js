@@ -19,7 +19,7 @@ function isValidEmail() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     console.log(typeof emailValue);
     if (emailPattern.test(emailValue)) {
-        alert("Email is valid");
+        console.log("this is valid");
         return true;
     } else {
         alert("Please enter a valid email address.");
@@ -54,7 +54,7 @@ function isValidPassword() {
     }
 
     if (validationMessage === "") {
-        alert("Password is valid");
+        console.log("this is valid");
         return true;
     } else {
         alert(validationMessage.trim());
@@ -67,7 +67,7 @@ function isValidPhone() {
     const phoneNumberValue = phoneNumber.value;
 
     if (/^\d{8}$/.test(phoneNumberValue)) {
-        alert("Phone number is valid");
+        console.log("this is valid");
         return true;
     } else {
         alert("Please enter a valid 8 digit phone number.");
@@ -76,6 +76,8 @@ function isValidPhone() {
 }
 
 btn.addEventListener("click", function () {
+    localStorage.setItem("email",email.value);
+    localStorage.setItem("phoneNumber",phoneNumber.value);
     if(isValidPhone() && isValidPassword() && isValidPhone() == true) {
         window.location.href = "todolist.html";
     }
